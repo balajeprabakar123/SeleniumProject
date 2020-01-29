@@ -1,0 +1,133 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fnil\fcharset0 HelveticaNeue-Italic;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;}
+{\*\expandedcolortbl;;\cssrgb\c27059\c27059\c27059;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 package SeleniumDemo;\
+import org.openqa.selenium.By;\
+import org.openqa.selenium.JavascriptExecutor;\
+import org.openqa.selenium.TakesScreenshot;\
+import org.openqa.selenium.WebDriver;\
+import org.apache.commons.io.FileUtils;\
+import org.openqa.selenium.OutputType;\
+\
+\
+import org.openqa.selenium.chrome.ChromeDriver;\
+\
+import java.io.File;\
+import java.io.IOException;\
+\
+public class OpenChrome\{\
+    public void OpenUrl() throws Exception \{\
+        System.
+\f1\i setProperty
+\f0\i0 ("webdriver.chrome.driver", "/users/balaje/Downloads/chromedriver");\
+\
+// Initialize browser\
+        WebDriver driver = new ChromeDriver();\
+\
+// Open facebook\
+        driver.get("http://www.cic.gc.ca/");\
+        driver.navigate().refresh();\
+        //driver.findElement(By.name("email")).sendKeys("balajiprabakar@gmail.com");\
+        //driver.findElement(By.name("pass")).sendKeys("Balaji@1989e");\
+        //driver.findElement(By.id("loginbutton")).click();\
+        //driver.findElement(By.xpath("//*[@id=\\'js_iz\\']/form/button/i")).click();\
+\
+\
+// Maximize browser\
+\
+        driver.manage().window().maximize();\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("/html/body/main/div/div[1]/div[2]/section[1]/p/a\\n")).click();\
+        JavascriptExecutor jse = (JavascriptExecutor) driver;\
+        jse.executeScript("scroll(0, 250);");\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("//*[@id=\\'wb-auto-6\\']/div[1]/section/h3/a")).click();\
+        Thread.
+\f1\i sleep
+\f0\i0 (1000);\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("//*[@id=\\'wb-auto-5\\']/div[1]/section/h3/a")).click();\
+        Thread.
+\f1\i sleep
+\f0\i0 (1000);\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("//*[@id=\\'wb-auto-6\\']/div[1]/section/div/p[2]/a\\n")).click();\
+        Thread.
+\f1\i sleep
+\f0\i0 (1000);\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("//*[@id=\\'token1\\']")).sendKeys("balajersundaramp");\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("//*[@id=\\'token2\\']")).sendKeys("Password1!");\
+        driver.findElement(By.
+\f1\i xpath
+\f0\i0 ("//*[@id=\\'login\\']/div[3]/div/button")).click();\
+       // driver.findElement(By.cssSelector())\
+\
+\
+        //driver.findElement(By.xpath("//*[@id=\\'userNavigationLabel\\']")).click();\
+\
+        this.
+\f1\i takeSnapShot
+\f0\i0 (driver, "/users/balaje/Downloads/FailedScr/test.png") ;\
+\
+\
+    \}\
+    public static void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception\{\
+\
+        //Convert web driver object to TakeScreenshot\
+\
+        TakesScreenshot scrShot =((TakesScreenshot)webdriver);\
+\
+        //Call getScreenshotAs method to create image file\
+\
+        File SrcFile=scrShot.getScreenshotAs(OutputType.
+\f1\i FILE
+\f0\i0 );\
+\
+        //Move image file to new destination\
+\
+        File DestFile=new File(fileWithPath);\
+\
+        //Copy file at destination\
+\
+        FileUtils.
+\f1\i copyFile
+\f0\i0 (SrcFile, DestFile);\
+\
+    \}\
+    public static void main(String[] args) throws Exception \{\
+        OpenChrome p1 = new OpenChrome();\
+p1.OpenUrl();\
+    \}\
+    \}\
+//ID\
+//Name\
+//Link Text\
+//CSS Selector\
+//Tag and ID\
+//Tag and class\
+//Tag and attribute\
+//Tag, class, and attribute\
+//Inner text\
+//DOM (Document Object Model)\
+//getElementById\
+//getElementsByName\
+//dom:name\
+//dom: index\
+//XPath\
+\
+\
+\
+}
